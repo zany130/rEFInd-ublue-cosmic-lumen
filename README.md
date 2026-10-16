@@ -9,12 +9,18 @@ An **experimental 4K rEFInd theme** based on the user-approved Universal Blue co
 ## Included files
 
 - `background.png`: **3840×2160 RGB** starfield / galaxy / horizon wallpaper with original Universal Blue title at upper left, **without permanently baked-in menu tiles or reboot/shutdown controls**.
-- `icons/os_bazzite.png`, `os_win.png`, `os_windows.png`, `os_win11.png`, `os_win10.png`, `os_shell.png`, `os_firmware.png`, `os_rescue.png`: **576×576 RGBA** translucent glass boot cards with embedded artwork.
-- `icons/func_reset.png`, `func_shutdown.png`, `func_firmware.png`, `tool_shell.png`: **96×96 RGBA** utility icons.
-- `selection_big.png`: **648×648 RGBA**, blue glow with a transparent center.
-- `selection_small.png`: **128×128 RGBA**, small tool-row highlight.
+- `icons/os_win.png`, `os_windows.png`, `os_win11.png`, `os_win10.png`: 128px Shadow-rEFInd Windows icons. `os_linux.png`, `os_fedora.png`, and `os_unknown.png` provide Shadow-rEFInd fallback icons. `os_bazzite.png`, `os_shell.png`, and `os_rescue.png` are shared custom icons from Penguin Swarm because Shadow-rEFInd has no exact equivalents. The old illustrative `os_firmware.png` has been removed; firmware belongs in the tool row.
+- `icons/func_reset.png`, `func_shutdown.png`, `func_firmware.png`, `func_about.png`, `func_exit.png`, and `tool_*.png`: original Shadow-rEFInd utility icons, configured at 48px.
+- `selection_big.png`: **144×144** original Shadow-rEFInd selection graphic.
+- `selection_small.png`: **64×64** original Shadow-rEFInd utility selection graphic.
 - `theme.conf`: **visual overrides only**; boot logic remains in your existing configuration.
 - `screenshots/`: concept and a separate *illustrative* overlay preview.
+
+## Shadow-rEFInd icon set (visual-only revision)
+
+This version follows the icon set used by [Penguin Swarm](https://github.com/zany130/rEFInd-bazzite-penguin-swarm): original **[Shadow-rEFInd](https://github.com/chris1111/Shadow-rEFInd)** Windows, fallback OS, utility, and selection PNGs, pinned to upstream commit `fe639d2869f59d291489c0c416c17577bd166046`. Icon sizes are **128px main row / 48px tool row**, with original 144px/64px selection images. The **Bazzite, EFI Shell and Rescue main-row icons are custom carryovers from Penguin Swarm**, because the upstream set does not contain exact equivalents; these are not falsely described as Shadow originals.
+
+**License:** Imported Shadow-rEFInd assets are **AGPL-3.0**, not MIT; full upstream license text is bundled at `third_party/Shadow-rEFInd-AGPL-3.0.txt`. Neither the original wallpaper's rights nor other brands' marks are covered by the icon license. This PR does not edit backgrounds, EFI executables, boot entries, Secure Boot, or the existing build scripts. **The existing asset rebuild script targets the previous custom icons and may overwrite these imported files: do not run it without updating its inputs.**
 
 ## Installation (on an existing rEFInd system)
 
@@ -50,8 +56,8 @@ On the user's Bazzite machine the tested loader path must remain `/EFI/fedora/sh
 
 1. Stock rEFInd does not make UEFI Shell and Firmware Settings main-row boot entries just because their `os_*.png` files exist. Shell and firmware are usually **tool row** entries. Add `shell` or `firmware` to `showtools` in the main configuration if you want them enabled; if you need a custom main-row EFI Shell entry, it requires a separate valid, trusted loader definition. `Rescue Tools` similarly requires an actual EFI loader.
 2. rEFInd generally labels the **currently selected** entry, not every boot option simultaneously, so the approved mockup's per-card labels are conceptual. We do not burn false labels onto icons or wallpaper.
-3. The glass appearance is baked into **each transparent OS icon**; `selection_big.png` displays only an overlay glow for the selected entry. The real position of those icons is controlled by rEFInd, not exact absolute coordinates in the mockup.
-4. At 3840×2160, 576px cards occupy substantial space. If you see clipping with many discovered entries, set `big_icon_size 448` or `384` in the theme file. Stock rEFInd rescales the images.
+3. This revision uses the compact Shadow-rEFInd icon style where available, with the custom Bazzite, Shell and Rescue exceptions; `selection_big.png` is its matching selection graphic. The real position of those icons is controlled by rEFInd, not exact absolute coordinates in the mockup.
+4. Shadow-rEFInd's compact 128px OS and 48px utility icons may look relatively small at 3840×2160. You can adjust sizes after checking the actual display; rEFInd rescales the PNGs.
 5. Background is reconstructed from the user-supplied approved concept plus procedural galaxy / planetary horizon rendering. It is designed to be faithful to the concept, **not pixel-identical** to the obscured pixels behind the original drawn menu.
 
 ## Restore previous theme
