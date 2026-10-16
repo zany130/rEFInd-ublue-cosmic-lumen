@@ -19,3 +19,14 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
+
+
+Scope clarification (not part of the MIT grant above):
+- This MIT license applies to independently originated project material.
+- Unmodified icons and selection images from chris1111/Shadow-rEFInd are
+  licensed by their upstream source under GNU AGPL-3.0; see the complete text
+  in third_party/Shadow-rEFInd-AGPL-3.0.txt.
+- No rights in independently copyrighted third-party source wallpapers,
+  derivative works that require source-artwork permission, or third-party
+  logos and trademarks are granted by this MIT notice.
+- See ATTRIBUTION.md for attribution, provenance, and unresolved permissions.
