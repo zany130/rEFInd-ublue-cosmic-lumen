@@ -4,7 +4,7 @@ An **experimental 4K rEFInd theme** based on the user-approved Universal Blue co
 
 > **Visual installation candidate, not yet boot-tested.** The concept and asset preview are artistic illustrations, not actual screenshots from UEFI firmware. Real stock rEFInd positions and labels can differ; fine-tune after a boot test.
 
-![Approved concept (illustration)](screenshots/approved-concept.png)
+![QEMU screenshot (not a firmware screenshot and may have QEMU artifacts that won't be present on a live system)](screenshots/preview.png)
 
 ## Included files
 
